@@ -11,8 +11,6 @@ val javaVersion: String by project
 val springCloudVersion: String by project
 val springCloudGcpVersion: String by project
 
-val dgbUtilitiesVersion: String by project
-val redissonVersion: String by project
 val kotlinLoggingVersion: String by project
 
 val wiremockVersion: String by project
@@ -42,29 +40,13 @@ plugins {
     id("org.jlleitschuh.gradle.ktlint") version "11.3.1"
 }
 
-group = "com.ftr.dgb"
+group = "com.payment.gateway"
 version = "0.1.0-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
     mavenCentral()
     gradlePluginPortal()
-    maven {
-        url = uri("$artifactRegistryMavenUrl/dgb-utilities")
-        credentials {
-            username = "_json_key_base64"
-            password = artifactRegistryMavenSecret
-        }
-        authentication {
-            create<BasicAuthentication>("basic")
-        }
-    }
-    maven {
-        url = uri("https://packages.confluent.io/maven/")
-    }
-    if (project.hasProperty("isLocal")) {
-        mavenLocal()
-    }
 }
 
 dependencyManagement {
@@ -93,9 +75,6 @@ dependencies {
     implementation("org.springframework.cloud:spring-cloud-starter-gateway")
 
     implementation("com.squareup.okio:okio:3.8.0")
-
-    // DGB
-    implementation("com.ftr.dgb:dgb-utilities:$dgbUtilitiesVersion")
 
     // missing netty exception fix
     runtimeOnly("io.grpc:grpc-netty")

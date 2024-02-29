@@ -1,11 +1,9 @@
 package com.payments.gateway
 
-import com.ftr.dgb.core.config.annotation.EnableDgbErrorHandling
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan
 import org.springframework.boot.runApplication
 
-@EnableDgbErrorHandling
 @ConfigurationPropertiesScan("com.payments.gateway")
 @SpringBootApplication
 class PaymentsGatewayApplication
