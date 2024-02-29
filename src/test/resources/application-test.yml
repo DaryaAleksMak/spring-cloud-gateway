@@ -1,0 +1,19 @@
+spring:
+
+  main:
+    allow-bean-definition-overriding: true
+
+payments-gateway:
+  cache:
+    ttl: PT2S
+
+management:
+  metrics:
+    export:
+      stackdriver:
+        enabled: false
+---
+spring:
+  config:
+    activate:
+      on-profile: mock

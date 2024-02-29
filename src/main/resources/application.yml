@@ -1,0 +1,36 @@
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+  application:
+    name: payments-gateway
+  main:
+    banner-mode: off
+server:
+  error:
+    include-stacktrace: never
+  port: 8080
+
+payments-gateway:
+  routes:
+    p2p:
+      check: /check
+      payment: /payments
+      status: /payments/{payment_id}
+      cancel: /cancel-payment
+      repeat: /repeat/{operation_id}
+    p2m:
+      check: /smpay/check
+      payment: /smpay/payments
+      status: /smpay/payments/{payment_id}
+      cancel: /smpay/cancel-payment
+      repeat: /smpay/repeat/{operation_id}
+    iban:
+      check: /smpay/c2a/check
+      payment: /smpay/c2a
+      status: /smpay/c2a/{payment_id}
+    tokenization:
+      payment: /smpay/tokenization
+      status: /smpay/tokenization/{payment_id}
+  cache:
+    ttl: PT60S

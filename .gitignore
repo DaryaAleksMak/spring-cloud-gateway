@@ -1,0 +1,17 @@
+HELP.md
+
+### IntelliJ IDEA ###
+.idea/
+!.idea/vcs.xml
+!.idea/codeStyles/
+*.iws
+*.iml
+*.ipr
+out/
+
+# MacOS
+.DS_Store
+/.gradle/
+/build/
+/.idea/
+/gradle/

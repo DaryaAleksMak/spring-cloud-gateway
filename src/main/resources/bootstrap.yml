@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: payments-gateway
+
+management:
+  endpoint:
+    startup:
+      enabled: true
+    health:
+      probes:
+        enabled: true
+      show-details: always
+
+---
+# Properties below are disabled because of exceptions for local environment. Should be enabled on CD!
+spring:
+  config:
+    activate:
+      on-profile: dev
